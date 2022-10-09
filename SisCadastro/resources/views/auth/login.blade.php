@@ -27,7 +27,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}" class="p-2 w-75 d-flex flex-column align-items-center ps-2">
+        <form method="POST" action="{{ route('login') }}" class="p-2 w-100 px-3 d-flex flex-column align-items-center ps-2">
             @csrf
 
             <!-- Email Address -->
@@ -55,16 +55,20 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
+            <div class="mt-2">
+                <div class="d-flex justify-content-between align-items-center">
+                    @if (Route::has('password.request'))
+                        <a class="row text-decoration-none px-1 mx-1" href="{{ route('password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </a>
+                    @endif
+                    <x-button class="mx-3">
+                        {{ __('Entrar') }}
+                    </x-button>
+                </div>
+                <button class="btn btn-success h-25 ms-2">
+                    <a href="register" class="text-decoration-none text-white"> Cadastrar</a>
+                </button>
             </div>
         </form>
     </x-auth-card>
